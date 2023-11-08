@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-SECRET_KEY = '3o+*f@$^jn55sz86q=ns$yv8jkh+%8*(-*v*tan8dv$asp^gt^'
+SECRET_KEY = ''
 
 
 DEBUG = False
@@ -33,15 +33,15 @@ STATICFILES_DIRS = [
      BASE_DIR/"accounts/static",
 ]
 
-PUBLIC_TEST ='pk_test_51MxcSDBmNIwWn8QE7627q43kcoHFW4sZyj39nR2I2jllOB1EEIPdtzG0OtXSzQzpmVhyZMmVX6u4r08MkwubDaM100Ak8fKN3F'
-PRIVATE_TEST='sk_test_51MxcSDBmNIwWn8QE438kN6jL5efQEh5I1MYgulRByImQN356nSKuIj2jxOwCDLnYeXkPWwLq7NGUWrklUOqqvAiF00aJE7vCnz'
+PUBLIC_TEST =''
+PRIVATE_TEST=''
 
 
-PUBLIC = 'pk_live_51MxcSDBmNIwWn8QEvUwaOzjqPtuiY7aTHbiR97QU3TL83vr2HVBkpFHXMUAMwvxkUYnlptjgYDGmCEFjc2sEc2jL00G2CsL11B'
-PRIVATE = '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'
+PUBLIC = ''
+PRIVATE = ''
 
 
-STRIPE_WEBHOOK_SECRET = 'whsec_b44jjJoJmsZwveSo56W1smY2XD68NPN8'
+STRIPE_WEBHOOK_SECRET = ''
 
 
 
@@ -98,9 +98,9 @@ WSGI_APPLICATION = 'Asrto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test',
-        'USER': 'postgres',
-        'PASSWORD': 'Piegeamorue@33',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -110,9 +110,9 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'data33',
-        'USER': 'astro',
-        'PASSWORD': 'astro',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '5432',
     }
