@@ -1,0 +1,39 @@
+/* Style pour le bouton */
+.mon-bouton {
+    background-color: #eb0bdf; /* Couleur de fond */
+    border: none;
+    color: white; /* Couleur du texte */
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+.mon-bouton:hover {
+    background-color: #fffb00; /* Couleur de fond au survol */
+}
+
+
+/* Style pour le bouton */
+.mon-bouton2 {
+    background-color: #087a7e; /* Couleur de fond */
+    border: none;
+    color: white; /* Couleur du texte */
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.mon-bouton2:hover {
+    background-color: #09ff00; /* Couleur de fond au survol */
+}

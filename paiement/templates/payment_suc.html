@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reussi</title>
+    
+</head>
+{% block body %}
+
+<body>
+
+  <div class="container home_msg">
+    <h1>Thanks for your order {{ customer.name }}!</h1>
+  </div>
+
+</body>
+
+{% endblock %} 
+<a href="{% url 'index' %}" class="mon-bouton">Retour à l'acceuil</a>
+</html>
+

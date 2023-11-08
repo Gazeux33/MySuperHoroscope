@@ -1,0 +1,428 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8">
+    <title>Vierge - MySuperHoroscope</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="{%static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{%static 'css/style_signa.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body style="background-color: #879aef;"> 
+    
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <a class="navbar-brand" href="{% url 'index' %}">
+            <img id="logo" src="{% static 'images/logo-vierge.png' %}" alt="logo">
+        </a>
+        {% if user.is_authenticated %}
+            <p id="user_name" class="ml-auto">{{ user.username }}</p>
+        {% endif %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <!--ici-->
+                {% if user.is_authenticated %}
+                    <a id="logout" style="background-color: #4664e6;" class="nav-item nav-link" href="{% url 'logout' %}">Se déconnecter</a>
+                {% else %}
+                    <a id="signin" style="background-color: #4664e6;" class="nav-item nav-link" href="{% url 'signup' %}">S'inscrire</a>
+                    <a id="login" style="background-color: #4664e6;" class="nav-item nav-link ml-auto" href="{% url 'login' %}">Se connecter</a>
+
+                    {% endif %}
+                    <div class="nav-item nav-link " id="networks">
+                        <a target="_blank" id="insta"href="https://www.instagram.com/mysuper_horoscope/">
+                            <img src="{% static 'images/insta.webp' %}">
+                        </a>
+                        <a target="_blank" id="tiktok" href="https://www.tiktok.com/@mysuperhoroscope">
+                            <img src="{% static 'images/tiktok.png' %}">
+                        </a>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        $(document).ready(function () {
+            function wrapButtonsInContainers() {
+                 if ($(window).width() <= 992) {
+                    $("#logout, #signin, #login").each(function () {
+                        if (!$(this).parent().hasClass("button-container")) {
+                               $(this).wrap('<div class="button-container"></div>');
+                        }
+                       });
+                   } else {
+                      $(".button-container").each(function () {
+                           $(this).children().unwrap();
+                      });
+                  }
+             }
+        
+               wrapButtonsInContainers();
+             $(window).resize(function () {
+                   wrapButtonsInContainers();
+            });
+          });
+     </script>
+    
+    
+    <script>
+        $(document).ready(function () {
+            // Fonction pour vérifier la largeur de la fenêtre et déplacer la balise <p>
+            function checkWidthAndMove() {
+                if ($(window).width() > 992) {
+                    // Déplace la balise <p> au niveau du commentaire "ici"
+                    $('#user_name').insertBefore('#logout');
+                } else {
+                    // Remet la balise <p> à sa place initiale
+                    $('#user_name').insertAfter('.navbar-brand');
+                }
+    
+                if ($(window).width() < 992) {
+                    // Déplace la balise <p> au niveau du commentaire "ici"
+                    $('#login').insertBefore('.navbar-toggler');
+                } else {
+                    // Remet la balise <p> à sa place initiale
+                    $('#login').insertAfter('#signin');
+                }
+            }
+    
+            // Vérifie la largeur de la fenêtre et déplace la balise <p> au chargement de la page
+            checkWidthAndMove();
+    
+            // Vérifie la largeur de la fenêtre et déplace la balise <p> lors du redimensionnement de la fenêtre
+            $(window).resize(function () {
+                checkWidthAndMove();
+            });
+        });
+    </script>
+
+<div class="hero">
+
+    <div class="left" style="background-color: #4664e6;">
+        <span class="marker"></span>
+        <p id="date">Horoscope du {{ date|date:"d F Y" }} {{ date|time:"H:i:s" }}</p>
+        <div class="signs">
+
+            <div class="balance">
+                <a href="{% url 'horoscope' sign='balance' %}" class="horobtn" id="balance">
+                    <img class="zodiac" src="{%static 'images/zodiaque/balance.png'%}"/>
+                </a>
+              </div>
+    
+            <div class="belier">
+                <a href="{% url 'horoscope' sign='belier' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/belier.png'%}"/>
+                </a>
+             </div>
+    
+            <div class="cancer">
+                <a href="{% url 'horoscope' sign='cancer' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/cancer.png'%}"/>
+                </a>
+             </div>
+    
+            <div class="capricorne">
+                <a href="{% url 'horoscope' sign='capricorne' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/capricorne.png'%}"/>
+                </a>
+        
+            </div>
+    
+            <div class="gemaux">
+                <a href="{% url 'horoscope' sign='gemeaux' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/gemaux.png'%}"/>
+                </a>
+              </div>
+    
+            <div class="lion">
+                <a href="{% url 'horoscope' sign='lion' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/lion.png'%}"/>
+                </a>
+           </div>
+    
+            <div class="poisson">
+                <a href="{% url 'horoscope' sign='poissons' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/poisson.png'%}"/>
+                </a>
+              </div>
+    
+            <div class="sagittaire">
+                <a href="{% url 'horoscope' sign='sagittaire' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/sagittaire.png'%}"/>
+                </a>
+        
+            </div>
+    
+            <div class="scorpion">
+                <a href="{% url 'horoscope' sign='scorpion' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/scorpion.png'%}"/>
+                </a>
+               </div>
+    
+            <div class="verseau">
+                <a href="{% url 'horoscope' sign='verseau' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/verseau.png'%}"/>
+                </a>
+              </div>
+    
+            <div class="vierge">
+                <a href="{% url 'horoscope' sign='vierge' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/vierge.png'%}"/>
+                </a>
+             </div>
+    
+            <div class="taureau">
+                <a href="{% url 'horoscope' sign='taureau' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/taureau.png'%}"/>
+                </a>
+            </div>
+        </div>
+    </div> 
+        
+
+    <div class="center">
+        <img id="signlogo" style="
+        filter: invert(28%) sepia(100%) saturate(1675%) hue-rotate(221deg) brightness(96%) contrast(88%); margin-top: 30px;"
+        src="{% static 'images/vierge.png' %}" alt="">
+
+        <h1 class="title">Vierge</h1>
+    
+        <!-- <div>Nombre chance :{{ horoscope.nombre }}</div> -->
+        <div class="horoscope">
+
+            <div class="text">
+                <h3>Travail :</h3>
+                <p>{{ horoscope.travail }}</p>
+            </div>
+
+            <div class="text">
+                <h3>Financier :</h3>
+                {% if has_paid %}
+                <p>{{ horoscope.argent }}</p>
+                {% else %}
+                <p class="free">
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas, vitae varius ligula urna nec lorem.
+                </p>
+                <a style="background-color: #879aef;" href="{% url 'product_page' %}" class="mon-bouton">Passer au premium</a>
+                {% endif %}
+            </div>
+
+            <div class="text">
+                <h3>Amour :</h3>
+                {% if has_paid %}
+                <p>{{ horoscope.amour }}</p>
+                {% else %}
+                <p class="free">
+                    Vivamus vel neque et metus euismod sodales non vitae augue, non lobortis tortor ullamcorper in id enim cursus consequat.
+                </p>
+                <a style="background-color: #879aef;" href="{% url 'product_page' %}" class="mon-bouton">Passer au premium</a>
+                {% endif %}
+            </div>
+
+
+            <div class="text">
+                <h3>Santé :</h3>
+                {% if has_paid %}
+                <p>{{ horoscope.sante }}</p>
+                {% else %}
+                <p class="free">
+                    Cras ultricies eros id est fermentum, fringilla pharetra nunc venenatis, efficitur hendrerit velit aliquam vitae sapien.
+                </p>
+                <a style="background-color: #879aef;" href="{% url 'product_page' %}" class="mon-bouton">Passer au premium</a>
+                {% endif %}
+            </div>
+
+            
+            <div class="text">
+                <h3>Famille :</h3>
+                {% if has_paid %}
+                <p>{{ horoscope.famille }}</p>
+                {% else %}
+                <p class="free">
+                    Curabitur quis justo et felis laoreet lacinia auctor nec dui, interdum et malesuada fames ac ante ipsum primis in faucibus.
+                </p>
+                <a style="background-color: #b8cee5;" href="{% url 'product_page' %}" class="mon-bouton">Passer au premium</a>
+                {% endif %}
+            </div>
+            
+
+
+
+            <h2>
+
+                <a style="background-color: #4664e6;" href="{% url 'index' %}" class="bouton-accueil">Retour à l'accueil</a>
+
+            </h2>
+        </div>
+    </div>
+
+    
+    <div class="right" style="background-color: #4664e6;">
+        <span class="marker2"></span>
+        <p id="temps" data-temps="{{ temps_restant }}">Temps avant le prochain horoscope {{ temps_restant|time:"H \h i:s" }}</p>
+        <div class="signs">
+                
+            <div class="balance">
+                <a href="{% url 'horoscope' sign='balance' %}" class="horobtn" id="balance">
+                    <img class="zodiac" src="{%static 'images/zodiaque/balance.png'%}"/>
+                </a>
+            </div>
+
+            <div class="belier">
+                <a href="{% url 'horoscope' sign='belier' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/belier.png'%}"/>
+                </a>
+            </div>
+
+            <div class="cancer">
+                <a href="{% url 'horoscope' sign='cancer' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/cancer.png'%}"/>
+                </a>
+            </div>
+
+            <div class="capricorne">
+                <a href="{% url 'horoscope' sign='capricorne' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/capricorne.png'%}"/>
+                </a>
+        
+            </div>
+
+            <div class="gemaux">
+                <a href="{% url 'horoscope' sign='gemeaux' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/gemaux.png'%}"/>
+                </a>
+            </div>
+
+            <div class="lion">
+                <a href="{% url 'horoscope' sign='lion' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/lion.png'%}"/>
+                </a>
+            </div>
+
+            <div class="poisson">
+                <a href="{% url 'horoscope' sign='poissons' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/poisson.png'%}"/>
+                </a>
+            </div>
+
+            <div class="sagittaire">
+                <a href="{% url 'horoscope' sign='sagittaire' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/sagittaire.png'%}"/>
+                </a>
+        
+            </div>
+
+            <div class="scorpion">
+                <a href="{% url 'horoscope' sign='scorpion' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/scorpion.png'%}"/>
+                </a>
+            </div>
+
+            <div class="verseau">
+                <a href="{% url 'horoscope' sign='verseau' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/verseau.png'%}"/>
+                </a>
+            </div>
+
+            <div class="vierge">
+                <a href="{% url 'horoscope' sign='vierge' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/vierge.png'%}"/>
+                </a>
+            </div>
+
+            <div class="taureau">
+                <a href="{% url 'horoscope' sign='taureau' %}" class="horobtn">
+                    <img class="zodiac" src="{%static 'images/zodiaque/taureau.png'%}"/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </body>
+<!-- <script>
+    $(document).ready(function () {
+        function actualiserTempsRestant() {
+            var tempsRestant = document.getElementById("temps");
+            var tempsRestantValue = tempsRestant.getAttribute("data-temps");
+
+            function convertirTempsEnSecondes(temps) {
+                var tempsSplit = temps.split(':');
+                var heures = parseInt(tempsSplit[0]);
+                var minutes = parseInt(tempsSplit[1]);
+                var secondes = parseInt(tempsSplit[2]);
+
+                return heures * 3600 + minutes * 60 + secondes;
+            }
+
+            var tempsRestantEnSecondes = convertirTempsEnSecondes(tempsRestantValue);
+
+            function afficherTempsRestant() {
+                var heures = Math.floor(tempsRestantEnSecondes / 3600);
+                var minutes = Math.floor((tempsRestantEnSecondes % 3600) / 60);
+                var secondes = tempsRestantEnSecondes % 60;
+
+                tempsRestant.innerHTML = "Temps avant le prochain horoscope : " + heures + "h " + minutes + "m " + secondes + "s";
+            }
+
+            afficherTempsRestant();
+
+            setInterval(function () {
+                tempsRestantEnSecondes--;
+
+                if (tempsRestantEnSecondes < 0) {
+                    tempsRestantEnSecondes = 0;
+                }
+
+                afficherTempsRestant();
+            }, 1000);
+        }
+
+        actualiserTempsRestant();
+    });
+</script> -->
+
+<script>
+    $(document).ready(function () {
+        // Fonction pour vérifier la largeur de la fenêtre et déplacer la balise <p>
+        function checkWidthAndMove() {
+            if ($(window).width() < 992) {
+                // Déplace la balise <p> au niveau du commentaire "ici"
+                $('#date').insertAfter('.title');
+            } else {
+                // Remet la balise <p> à sa place initiale
+                $('#date').insertAfter('.marker');
+            }
+
+            if ($(window).width() < 992) {
+                // Déplace la balise <p> au niveau du commentaire "ici"
+                $('#temps').insertBefore('#signlogo');
+            } else {
+                // Remet la balise <p> à sa place initiale
+                $('#temps').insertAfter('.marker2');
+            }
+        }
+
+        // Vérifie la largeur de la fenêtre et déplace la balise <p> au chargement de la page
+        checkWidthAndMove();
+
+        // Vérifie la largeur de la fenêtre et déplace la balise <p> lors du redimensionnement de la fenêtre
+        $(window).resize(function () {
+            checkWidthAndMove();
+        });
+    });
+</script>
+
+</html>

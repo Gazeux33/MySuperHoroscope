@@ -1,0 +1,396 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Helvetica World, Arial, sans-serif;
+    max-width: 100vw;
+}
+
+
+
+nav{
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+#networks{
+    padding-top: 22px;
+}
+
+#insta{
+    aspect-ratio: 1/1;
+    height: 20px;
+
+    margin-right: 10px;
+}
+
+#insta img{
+    aspect-ratio: 1/1;
+    height: 20px;
+}
+
+#tiktok{
+    aspect-ratio: 1/1;
+    height: 20px;
+}
+
+#tiktok img{
+    aspect-ratio: 1/1;
+    height: 20px;
+}
+
+#logo{
+    max-width: 100%;
+    aspect-ratio: auto;
+    height: 70px;
+    transform: translateY(0%);
+    display: inline-block;
+}
+
+.logout-container {
+    display: inline-block;
+}
+
+#logout {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: ease-in-out 0.5s;
+    white-space: nowrap;
+    line-height: 2;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+
+#login{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: ease-in-out 0.5s;
+    white-space: nowrap;
+    line-height: 2;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+#signin{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: ease-in-out 0.5s;
+    white-space: nowrap;
+    line-height: 2;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#user_name{
+    padding-top: 20px;
+}
+
+
+
+
+#log_btn:hover{
+    transition: ease-in-out 0.5s;
+}
+
+
+
+#signup{
+    margin-left: 10px;
+}
+
+
+
+/* Style pour le bouton */
+h1{
+    font-size: 7em !important;
+    text-align: center;
+    padding-top: 150px;
+    padding-bottom: 120px;
+    font-family: 'Cardo', serif !important;
+}
+
+#signlogo, [itemid="poisson"]{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 12%;
+    z-index: -1;
+}
+
+.right{
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    width: 20vw;
+    text-align: center;
+}
+
+.left{
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    width: 20vw;
+    text-align: center;
+}
+
+.signs{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 95%;
+}
+
+.hero{
+    display: flex;
+    justify-content: space-between;
+}
+
+ p{
+    padding-top: 20px;
+    font-weight: 600;
+}
+
+.horoscope{
+    text-align: center;
+}
+
+
+
+.text {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin: 60px 20px;
+    padding: 20px 20px;
+    width: 50vw;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+h3{
+    font-size: 2em !important;
+    text-align: start;
+}
+
+.text p{
+    font-size: 1.5em !important;
+    text-align: start;
+}
+
+.free{
+    filter: blur(0.2em);
+}
+
+.mon-bouton {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5em;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    text-decoration: none !important;
+    margin: 0 auto !important;
+    position: absolute;
+    z-index: 1;
+}
+
+.mon-bouton:hover {
+    color: #000000; 
+}
+
+
+/* Style pour le bouton Retour à l'accueil */
+.bouton-accueil {
+    border: none;
+    color: white; /* Couleur du texte */
+    padding: 20px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.bouton-accueil:hover{
+    color: white;
+}
+
+@media(max-width: 992px) {
+
+    #logo_btn{
+        margin-top: 15px;
+    }
+
+    #logo{
+        height: 35px;
+    }
+
+    #insta{
+        padding-left: 10px;
+        margin-bottom: 30px;
+    }
+
+    #insta img{
+        height: 20px;
+
+    }
+
+    #tiktok{
+        padding-left: 10px;
+        margin-bottom: 30px;
+    }
+
+    #tiktok img{
+        height: 20px;
+
+    }
+
+
+    #login{
+        margin: 10px 0; 
+        font-size: 0.6em;
+        margin-right: 10px;
+    }
+
+    #signin{
+        margin: 10px 0; 
+        font-size: 0.6em;
+
+    }
+
+    #logout{
+        margin: 10px 0;
+        font-size: 0.6em;
+        margin-top: 40px;
+    }
+    #user_name{
+        padding-right: 10px;
+        font-size: 0.6em;
+        padding-top: 15px;
+    }
+
+
+    p{
+        text-align: center !important;
+    }
+
+    #signlogo{
+        top: 17%;
+        width: 290px;
+        margin-top: 45px !important;
+    }
+
+    h1{
+        font-size: 4.5em !important;
+    }
+
+    .left{
+        width: 0px;
+    }
+
+    .right{
+        width: 0px
+    }
+
+    #temps{
+        margin-top: 20px;
+        font-weight: 400;
+    }
+
+    #date{
+        padding-top: 20px;
+        font-weight: 400;
+    }
+
+    .text{
+        width: auto;
+        margin: 40px 35px;
+    }
+
+    .text p{
+        text-align: start !important;
+        font-weight: 200;
+    }
+
+
+    h3{
+        font-weight: 400;
+    }
+
+    .text a{
+        font-weight: 200;
+    }
+
+    .horobtn{
+        height: 0px;
+        width: 0px;
+    }
+    .horobtn img{
+        height: 0px;
+        width: 0px !important;
+    }
+    
+    [itemid="poisson"]{
+        height: 350px;
+        max-width: 100%;
+        width: auto;
+        top: 17%;
+        margin-top: 30px !important;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+.zodiac{
+    width: 50px;
+    aspect-ratio: 1/1;
+    transform: translateY(50%);
+
+}
