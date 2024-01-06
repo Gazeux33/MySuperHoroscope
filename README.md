@@ -4,7 +4,7 @@
 ![MySuperHoroscope Image](https://i.imgur.com/lRwA0yD.png)
 ![MySuperHoroscope Image](https://i.imgur.com/WvUC9oN.png)
 ![MySuperHoroscope Image](https://i.imgur.com/8SehNwN.png)
-![MySuperHoroscope Image](https://i.imgur.com/QxVTSiJ.png)
-![MySuperHoroscope Image](https://i.imgur.com/IyOngyY.png)
-![MySuperHoroscope Image](https://i.imgur.com/O84oHud.png)
+![MySuperHoroscope Image](https://i.imgur.com/km4j0IK.png)
+![MySuperHoroscope Image](https://i.imgur.com/3DsNfyv.png)
+![MySuperHoroscope Image](https://i.imgur.com/3vIY1ue.png)
 
